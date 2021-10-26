@@ -1,13 +1,13 @@
 # Computational-Photography_HW2
-tetris
+#tetris
 
 
-# 姓名：賴柏霖
-# 學號：609410151
-# e-mail：609410151@alum.ccu.edu.tw
-# 作業環境：Win10 64bit Visual studio 2017
-# 編譯器：Visual Studio 2017
-# 參考資料：
+## 姓名：賴柏霖
+## 學號：609410151
+## e-mail：609410151@alum.ccu.edu.tw
+## 作業環境：Win10 64bit Visual studio 2017
+## 編譯器：Visual Studio 2017
+## 參考資料：
 https://blog.csdn.net/wangxh88/article/details/84219318
 https://github.com/linzhi/tetris
 https://blog.csdn.net/weixin_30569153/article/details/97128717?ops_request_misc=&request_id=&biz_id=102&utm_term=opengl%20tetris&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-1-97128717.nonecase&spm=1018.2226.3001.4187
@@ -16,7 +16,7 @@ https://github.com/xhacker/tetris-opengl
 https://github.com/AvronGols/tetris-opengl
 https://github.com/xhacker/tetris-opengl
 https://www.youtube.com/watch?v=-8teaOoZdxA
-# 指定作業功能：
+## 指定作業功能：
 	1.建立一個Tetris遊戲的視窗，包含四個要素：
 		a.Game board：是你遊戲的主要窗口，大小為10*20，至少可容納200個方塊。(為了和方塊匹配，建議大小為200x400 pixel)
 		b.Preview window：預覽窗口顯示下一個，將生成的方塊。
