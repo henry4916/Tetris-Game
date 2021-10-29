@@ -110,11 +110,19 @@ void keyboard(unsigned char key, int x, int y)
 }
 
 //設定按鍵左右下的移動功能
+int temp_start = 0;
 void special(int key, int x, int y)
 {
 	if (key == GLUT_KEY_UP)
 	{
+		
+		if (temp_start == 0)
+		{
+			game.restart();
+			temp_start = 1;
+		}
 		game.start_flag = 1;
+		
 	}
 	// 如果遊戲沒有gameover
 	if (!game.paused && !game.killed) 
@@ -203,7 +211,7 @@ void display(void)
 			sprintf_s(msg, N, "GAME OVER");
 			BitmapText(msg,  155, VPHEIGHT/2 + 50);
 			sprintf_s(msg, N, "YOUR SCORE: %d", game.linesCleared);
-			BitmapText(msg,  140, VPHEIGHT/2);
+			BitmapText(msg,  140, VPHEIGHT/2-50);
 			sprintf_s(msg, N, "Press [ENTER] to restart ...");
 			BitmapText(msg, 75, VPHEIGHT/2+30 - 100);
 		}
