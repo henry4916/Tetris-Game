@@ -45,3 +45,5 @@ https://www.youtube.com/watch?v=-8teaOoZdxA
 	4. Bonus：
 		a.遊戲可以中途暫停、重新開始
 		b.遊戲結束畫面除了Game over並顯示分數
+![image](https://user-images.githubusercontent.com/72666141/139395990-bc618e8d-2054-4bb8-8220-0e786a1ebdda.png)
+
