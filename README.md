@@ -18,10 +18,10 @@ https://github.com/xhacker/tetris-opengl
 https://www.youtube.com/watch?v=-8teaOoZdxA
 #### 指定作業功能：
 	1.建立一個Tetris遊戲的視窗，包含四個要素：
-		a.Game board：是你遊戲的主要窗口，大小為10*20，至少可容納200個方塊。(為了和方塊匹配，建議大小為200x400 pixel)
-		b.Preview window：預覽窗口顯示下一個，將生成的方塊。
-		c.Score display：顯示當前累積分數，消除一排方塊獲得10分，若同時消除越多排分數越高，mark = 10 * Combo * Combo，Combo = number of rows disappeared for a single block)
-		d.Level display：指當前難度，控制方塊的下落速度，分數每超過30分，上升難度，加快下落速度，the falling speed equals to [1000msec –(level – 1) * 100] per grid-square)
+	a.Game board：是你遊戲的主要窗口，大小為10*20，至少可容納200個方塊。(為了和方塊匹配，大小為200x400 pixel)
+	b.Preview window：預覽窗口顯示下一個，將生成的方塊。
+	c.Score display：顯示當前累積分數，消除一排方塊獲得10分，若同時消除越多排分數越高，mark = 10 * Combo * Combo，Combo = number of rows disappeared for a single block
+	d.Level display：指當前難度，控制方塊的下落速度，分數每超過30分，上升難度，加快下落速度，實驗過投影片的公式但是速度太慢，所以調整為level有10個，每一個level有不同的速度
 
 	2.請將四格骨牌設計出來，依照遊戲的規則：
 		-為了與Game board的窗口匹配，一格方塊的建議大小為20x20 pixel
@@ -40,7 +40,8 @@ https://www.youtube.com/watch?v=-8teaOoZdxA
 		-Z：方塊逆時針旋轉
 		-X：方塊順時針旋轉
 		-P：遊戲暫停
+		-enter:遊戲重新開始
 
 	4. Bonus：
 		a.遊戲可以中途暫停、重新開始
-		b.遊戲結束畫面除了Game over以外，可以添加其他設計
+		b.遊戲結束畫面除了Game over並顯示分數
