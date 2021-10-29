@@ -45,7 +45,44 @@ void Game::update() {
 			if(linesCleared / 30 >= 1)
 				level = linesCleared / 30;
 			
-			timer = 1000 - (level - 1) * 100;
+			//timer = 1000 - (level - 1) * 100;
+			switch (level)
+			{
+				case 1:
+					timer = 900;
+					break;
+				case 2:
+					timer = 750;
+					break;
+				case 3:
+					timer = 600;
+					break;
+				case 4:
+					timer = 400;
+					break;
+				case 5:
+					timer = 200;
+					break;
+				case 6:
+					timer = 100;
+					break;
+				case 7:
+					timer = 80;
+					break;
+				case 8:
+					timer = 50;
+					break;
+				case 9:
+					timer = 20;
+					break;
+				case 10:
+					timer = 10;
+					break;
+				default:
+					break;
+			}
+				
+
 			// level最大為10，完成則結束
 			if (level == 10)
 				restart();
