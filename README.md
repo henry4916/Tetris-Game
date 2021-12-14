@@ -1,5 +1,5 @@
 # Computational-Photography_HW2
-# tetris
+# Tetris
 
 
 #### 姓名：賴柏霖
