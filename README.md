@@ -1,5 +1,5 @@
 # Tetris Game
-# Computational-Photography_HW2
+## 計算攝影學：應用圖學與影像技術_HW2
 
 ## 指定作業功能：
 	1.建立一個Tetris遊戲的視窗，包含四個要素：
