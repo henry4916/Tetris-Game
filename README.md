@@ -1,7 +1,7 @@
 # Tetris Game
 ## 計算攝影學：應用圖學與影像技術_HW2
 ## Demo：
-[![IMAGE ALT TEXT](https://user-images.githubusercontent.com/72666141/165116969-931ec08b-a66b-49ff-85ec-86c45944a7f9.PNG)](https://www.youtube.com/watch?v=GRcNxCQtLs0)
+[![IMAGE ALT TEXT](https://user-images.githubusercontent.com/72666141/165117628-53d2291f-4f44-41ff-871b-d1157d38b645.PNG)](https://www.youtube.com/watch?v=GRcNxCQtLs0)
 ## 指定作業功能：
 	1.建立一個Tetris遊戲的視窗，包含四個要素：
 		a.Game board：是你遊戲的主要窗口，大小為10*20，至少可容納200個方塊。(為了和方塊匹配，大小為200x400 pixel)
