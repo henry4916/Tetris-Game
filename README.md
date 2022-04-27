@@ -1,8 +1,8 @@
 # Tetris Game
 ## 計算攝影學：應用圖學與影像技術_HW2
-## Demo：
+### Demo：
 [![IMAGE ALT TEXT](https://user-images.githubusercontent.com/72666141/165117628-53d2291f-4f44-41ff-871b-d1157d38b645.PNG)](https://www.youtube.com/watch?v=j7dOpKYpj-4)
-## 指定作業功能：
+### 指定作業功能：
 	1.建立一個Tetris遊戲的視窗，包含四個要素：
 		a.Game board：是你遊戲的主要窗口，大小為10*20，至少可容納200個方塊。(為了和方塊匹配，大小為200x400 pixel)
 		b.Preview window：預覽窗口顯示下一個，將生成的方塊。
@@ -33,7 +33,7 @@
 		b.遊戲結束畫面除了Game over並顯示分數
 ![image](https://user-images.githubusercontent.com/72666141/139395990-bc618e8d-2054-4bb8-8220-0e786a1ebdda.png)
 
-#### 參考資料：
+### 參考資料：
 https://blog.csdn.net/wangxh88/article/details/84219318
 https://github.com/linzhi/tetris
 https://blog.csdn.net/weixin_30569153/article/details/97128717?ops_request_misc=&request_id=&biz_id=102&utm_term=opengl%20tetris&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-1-97128717.nonecase&spm=1018.2226.3001.4187
