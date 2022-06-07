@@ -1,6 +1,6 @@
 # Tetris Game
 ## 計算攝影學：應用圖學與影像技術_HW2
-### Demo：
+### Demo影片：
 [![IMAGE ALT TEXT](https://user-images.githubusercontent.com/72666141/165117628-53d2291f-4f44-41ff-871b-d1157d38b645.PNG)](https://www.youtube.com/watch?v=j7dOpKYpj-4)
 ### 指定作業功能：
 	1.建立一個Tetris遊戲的視窗，包含四個要素：
