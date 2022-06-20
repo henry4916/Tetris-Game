@@ -10,37 +10,37 @@
 using namespace std;
 
 /*
-¨C·í­p®É¾¹¨ì´Á®É½Õ¥Î¡A¦ı¹CÀ¸¨S¦³µ²§ô©Î¼È°±
+æ¯ç•¶è¨ˆæ™‚å™¨åˆ°æœŸæ™‚èª¿ç”¨ï¼Œä½†éŠæˆ²æ²’æœ‰çµæŸæˆ–æš«åœ
 */
 void Game::update() {
 	// Check pieces collision
-	if (moveCollision(0)) {					// ¦pªGµo¥Í¸I¼²
-		if (activePiece.y <= 2) {			// ÀË¬d¥¦¬O§_µ²§ô¹CÀ¸
+	if (moveCollision(0)) {					// å¦‚æœç™¼ç”Ÿç¢°æ’
+		if (activePiece.y <= 2) {			// æª¢æŸ¥å®ƒæ˜¯å¦çµæŸéŠæˆ²
 			killed = true;
 		}
-		else {								// ¦pªG¹CÀ¸¤´µM¬¡ÅD
-			updateActiveAfterCollision();	// ¤Hª«©T©w¥N´À¸I¼²
+		else {								// å¦‚æœéŠæˆ²ä»ç„¶æ´»èº
+			updateActiveAfterCollision();	// äººç‰©å›ºå®šä»£æ›¿ç¢°æ’
 			linesCleared_score = linesCleared;
-			checkLine();					// ÀË¬d¶ñ¥Rªº¦æ
+			checkLine();					// æª¢æŸ¥å¡«å……çš„è¡Œ
 
 			/* 
-				¤À¼Æ­pºâ 
-				¤½¦¡ mark = 10 * Combo * Combo
+				åˆ†æ•¸è¨ˆç®— 
+				å…¬å¼ mark = 10 * Combo * Combo
 				Combo = number of rows disappeared for a single block
 			*/
 			if (linesCleared - linesCleared_score >=1 )
 			{
-				// temp¥Î¨Ó­pºâ®ø¶ôªº¼Æ¶q
+				// tempç”¨ä¾†è¨ˆç®—æ¶ˆå¡Šçš„æ•¸é‡
 				int temp_linesCleared = linesCleared - linesCleared_score;
-				// ¤½¦¡
+				// å…¬å¼
 				linesCleared += (linesCleared - linesCleared_score) * (linesCleared - linesCleared_score) * 10;
-				// °Å±¼checkLine·|¦h¥[
+				// å‰ªæ‰checkLineæœƒå¤šåŠ 
 				linesCleared -= temp_linesCleared;
 			}
 				
 			/*
-			¦pªG¤À¼Æ´£¤É«hµ¥¯Å´£¤É³t«×ÅÜ§Ö
-			¤½¦¡  the falling speed equals to [1000msec ¡V(level ¡V 1) * 100] per grid-square
+			å¦‚æœåˆ†æ•¸æå‡å‰‡ç­‰ç´šæå‡é€Ÿåº¦è®Šå¿«
+			å…¬å¼  the falling speed equals to [1000msec â€“(level â€“ 1) * 100] per grid-square
 			*/
 			if(linesCleared / 30 >= 1)
 				level = linesCleared / 30;
@@ -83,22 +83,22 @@ void Game::update() {
 			}
 				
 
-			// level³Ì¤j¬°10¡A§¹¦¨«hµ²§ô
+			// levelæœ€å¤§ç‚º10ï¼Œå®Œæˆå‰‡çµæŸ
 			if (level == 10)
 				restart();
 
 				
-			if (deleteLines)				// ¦pªGµo²{¦æ³Q§R°£¡A
-				clearLine();				// ¶ñ¥Rªº½u³Q§R°£
-			genNextPiece();					// ²£¥Í·spiece
+			if (deleteLines)				// å¦‚æœç™¼ç¾è¡Œè¢«åˆªé™¤ï¼Œ
+				clearLine();				// å¡«å……çš„ç·šè¢«åˆªé™¤
+			genNextPiece();					// ç”¢ç”Ÿæ–°piece
 
 			clearNextPieceGrid();
 			updateNextPieceGrid();
 
-			updateActivePiece();			// ¥¦¦b¹CÀ¸ºô®æ¤¤ªº§ó·s
+			updateActivePiece();			// å®ƒåœ¨éŠæˆ²ç¶²æ ¼ä¸­çš„æ›´æ–°
 		}
 	}
-	else {									// ¦pªG¨S¦³¸I¼²¡A³o¶ô·|±¼¨ì¤U­±
+	else {									// å¦‚æœæ²’æœ‰ç¢°æ’ï¼Œé€™å¡Šæœƒæ‰åˆ°ä¸‹é¢
 		fixActivePiece();
 		activePiece.y++;
 		updateActivePiece();
@@ -106,24 +106,24 @@ void Game::update() {
 }
 
 /*
-¶}©l¤@­Ó·s¹CÀ¸¨Ãªì©l¤Æ©Ò»İªº¤¸¯À
+é–‹å§‹ä¸€å€‹æ–°éŠæˆ²ä¸¦åˆå§‹åŒ–æ‰€éœ€çš„å…ƒç´ 
 */
 void Game::restart()
 {
-	clearMainGrid();		// Cleaning the main grid
-	clearNextPieceGrid();	// Clearing the grid with the next figure
-	linesCleared = 0;		// The player's score is zero
+	clearMainGrid();		// æ¸…ç©º
+	clearNextPieceGrid();	// ç”¨ä¸‹åœ–æ¸…é™¤ç¶²æ ¼
+	linesCleared = 0;		// ç©å®¶åˆ†æ•¸0
 	linesCleared_score = 0;
 	level = 1;
-	shapesCount = 1;		// The counter of pieces per game is equal to one ¨C³õ¤ñÁÉªº´Ñ¤l¼Æµ¥©ó¤@
+	shapesCount = 1;		// æ¯å ´æ¯”è³½çš„æ£‹å­æ•¸ç­‰æ–¼ä¸€
 	killed = false;
 	paused = false;
 	deleteLines = false;
 
-	// Generating the current random piece ¥Í¦¨·í«eªºÀH¾÷¤ù¬q
+	// ç”Ÿæˆç•¶å‰çš„éš¨æ©Ÿç‰‡æ®µ
 	activePiece = Piece(rand() % numPieces);
 	/*
-	§@·~­n¨D 
+	ä½œæ¥­è¦æ±‚ 
 		The starting position of a block is at the middle of the third top row.
 		Suppose the width of a row is A, the x coordinate of the center of the new block is either floor[A / 2] or ceiling[A / 2].
 	*/
@@ -131,7 +131,7 @@ void Game::restart()
 	activePiece.y = 0;
 	updateActivePiece();
 
-	// Generating the next piece ¥Í¦¨¤U¤@¶ô
+	// ç”Ÿæˆä¸‹ä¸€å¡Š
 	nextPiece = Piece(rand() % numPieces);
 	nextPiece.x = COLS/2;
 	nextPiece.y = 0;
@@ -139,44 +139,43 @@ void Game::restart()
 }
 
 /*
-Updating the game grid and the correct display of the active figure when falling §ó·s¹CÀ¸ºô®æ©M±¼¸¨®É¬¡°Ê¤Hª«ªº¥¿½TÅã¥Ü
+æ›´æ–°éŠæˆ²ç¶²æ ¼å’Œæ‰è½æ™‚æ´»å‹•äººç‰©çš„æ­£ç¢ºé¡¯ç¤º
 */
 void Game::fixActivePiece() {
-	// Determining the data of the current piece by its type and position ³q¹L¨äÃş«¬©M¦ì¸m½T©w·í«e¤ùÂ_ªº¼Æ¾Ú
+	// é€šéå…¶é¡å‹å’Œä½ç½®ç¢ºå®šç•¶å‰ç‰‡æ–·çš„æ•¸æ“š
 	const int* trans = activePiece.rotations();
 	for(int i = 0; i < 8; i += 2){
 		Square &square = mainGrid[activePiece.y + trans[i + 1]][activePiece.x + trans[i]];
-		// Setting active and inactive cells ³]¸m¬¡°Ê©M«D¬¡°Ê³æ¤¸®æ
+		// Setting active and inactive cells è¨­ç½®æ´»å‹•å’Œéæ´»å‹•å–®å…ƒæ ¼
 		square.isFilled = false;
 		square.isActive = false;
 	}
 }
 
-// ³Ğ«Ø·sªºÄ_¥Û
+// å‰µå»ºæ–°çš„å¯¶çŸ³
 void Game::genNextPiece() {
 	activePiece = nextPiece;
 	nextPiece = Piece(rand() % numPieces);
 	nextPiece.x = COLS/2;
 	nextPiece.y = 0;
-	// Increase the piece counter per game
+	// å¢åŠ æ¯å ´æ¯”è³½çš„è¨ˆä»¶æ•¸
 	shapesCount++;
 }
 
 /*
-Move the active piece left and right ¥ª¥k²¾°Ê¬¡°Ê¶ô
+å·¦å³ç§»å‹•æ´»å‹•å¡Š
 */
 void Game::move(int dir)
 {
-	if(moveCollision(dir))	// If there is a collision with one of the borders, ¦pªG»P¨ä¤¤¤@­ÓÃä¬Éµo¥Í¸I¼²¡A
-		return;				// nothing happens ¨Sµo¥Í¤°»ò¨Æ
+	if(moveCollision(dir))	// å¦‚æœèˆ‡å…¶ä¸­ä¸€å€‹é‚Šç•Œç™¼ç”Ÿç¢°æ’
+		return;				// æ²’ç™¼ç”Ÿä»€éº¼äº‹
 	fixActivePiece();
 	activePiece.x += dir;
 	updateActivePiece();
 }
 
 /*
-Cleaning the main grid 
-²M¼ä¥D¹qºô
+æ¸…æ½”ä¸»é›»ç¶²
 */
 void Game::clearMainGrid()
 {
@@ -189,8 +188,7 @@ void Game::clearMainGrid()
 }
 
 /*
-Clearing the grid with the next piece 
-¥Î¤U¤@¶ô²M°£ºô®æ
+ç”¨ä¸‹ä¸€å¡Šæ¸…é™¤ç¶²æ ¼
 */
 void Game::clearNextPieceGrid()
 {
@@ -203,15 +201,15 @@ void Game::clearNextPieceGrid()
 }
 
 /*
-Updating the position of the active piece with rotation ³q¹L±ÛÂà§ó·s¬¡°Ê¶ôªº¦ì¸m
+é€šéæ—‹è½‰æ›´æ–°æ´»å‹•å¡Šçš„ä½ç½®
 */
 void Game::updateActivePiece() {
-	// Pointer to an array that stores all conversions «ü¦V¦sÀx©Ò¦³Âà´«ªº¼Æ²Õªº«ü°w
+	// æŒ‡å‘å­˜å„²æ‰€æœ‰è½‰æ›çš„æ•¸çµ„çš„æŒ‡é‡
 	const int* trans = activePiece.rotations();
 	for(int i = 0; i < 8; i += 2){
-		// Find the active piece in the game grid ¦b¹CÀ¸ºô®æ¤¤§ä¨ì¬¡°Êªº´Ñ¤l
+		// åœ¨éŠæˆ²ç¶²æ ¼ä¸­æ‰¾åˆ°æ´»å‹•çš„æ£‹å­
 		Square &square = mainGrid[activePiece.y + trans[i + 1]][activePiece.x + trans[i]];
-		// Convert the active piece to filled grid cells ±N¬¡°Ê¶ôÂà´«¬°¶ñ¥Rªººô®æ³æ¤¸
+		// å°‡æ´»å‹•å¡Šè½‰æ›ç‚ºå¡«å……çš„ç¶²æ ¼å–®å…ƒ
 		square.isFilled = true;
 		square.isActive = true;
 		square.red = activePiece.redVal;
@@ -221,17 +219,15 @@ void Game::updateActivePiece() {
 }
 
 /*
-Updating the grid with the next piece
-
-¥Î¤U¤@¶ô§ó·sºô®æ
+ç”¨ä¸‹ä¸€å¡Šæ›´æ–°ç¶²æ ¼
 */
 void Game::updateNextPieceGrid() {
-	// Pointer to an array that stores all conversions  «ü¦V¦sÀx©Ò¦³Âà´«ªº¼Æ²Õªº«ü°w
+	// æŒ‡å‘å­˜å„²æ‰€æœ‰è½‰æ›çš„æ•¸çµ„çš„æŒ‡é‡
 	const int* transNext = nextPiece.rotations();
 	for (int i = 0; i < 8; i += 2) {
-		// Find the active piece in the game grid ¦b¹CÀ¸ºô®æ¤¤§ä¨ì¬¡°Êªº´Ñ¤l
+		// Find the active piece in the game grid åœ¨éŠæˆ²ç¶²æ ¼ä¸­æ‰¾åˆ°æ´»å‹•çš„æ£‹å­
 		Square& squareNext = nextPieceGrid[nextPiece.y + transNext[i + 1]][nextPiece.x + transNext[i]];
-		// Convert the active piece to filled grid cells ±N¬¡°Ê¶ôÂà´«¬°¶ñ¥Rªººô®æ³æ¤¸
+		// å°‡æ´»å‹•å¡Šè½‰æ›ç‚ºå¡«å……çš„ç¶²æ ¼å–®å…ƒ
 		squareNext.isFilled = true;
 		squareNext.isActive = true;
 		squareNext.red = nextPiece.redVal;
@@ -252,11 +248,10 @@ Game::Game()
 }
 
 /*
-Rotate the current piece and check if it can be rotated
-±ÛÂà·í«e¶ô¨ÃÀË¬d¥¦¬O§_¥i¥H±ÛÂà
+æ—‹è½‰ç•¶å‰å¡Šä¸¦æª¢æŸ¥å®ƒæ˜¯å¦å¯ä»¥æ—‹è½‰
 */
 void Game::rotateShape(int dir) {
-	// ÀH¾÷²£¥Í¤@­Ó³]©wªºÄ_¥Û
+	// éš¨æ©Ÿç”¢ç”Ÿä¸€å€‹è¨­å®šçš„å¯¶çŸ³
 	activePieceCopy = Piece(rand() % numPieces);
 	activePieceCopy.x = activePiece.x;
 	activePieceCopy.y = activePiece.y;
@@ -264,7 +259,7 @@ void Game::rotateShape(int dir) {
 	activePieceCopy.type = activePiece.type;
 	activePieceCopy.rotatePiece(dir);
 	
-	// If the active piece can be rotated, it is rotated and displayed ¦pªG¬¡°Ê¶ô¥i¥H±ÛÂà¡A«h±ÛÂà¨ÃÅã¥Ü
+	//å¦‚æœæ´»å‹•å¡Šå¯ä»¥æ—‹è½‰ï¼Œå‰‡æ—‹è½‰ä¸¦é¡¯ç¤º
 	if(canRotate(activePieceCopy)) {
 		fixActivePiece();
 		activePiece.rotatePiece(dir);
@@ -273,8 +268,7 @@ void Game::rotateShape(int dir) {
 }
 
 /*
-Checking whether a piece can be rotated
-ÀË¬d¤u¥ó¬O§_¥i¥H±ÛÂà
+æª¢æŸ¥å·¥ä»¶æ˜¯å¦å¯ä»¥æ—‹è½‰
 */
 bool Game::canRotate(Piece activeP) {
 	if(rotationCollision()) {
@@ -285,8 +279,7 @@ bool Game::canRotate(Piece activeP) {
 }
 
 /*
-Checking for collisions when rotating a piece
-±ÛÂà¤u¥ó®ÉÀË¬d¸I¼²
+æ—‹è½‰å·¥ä»¶æ™‚æª¢æŸ¥ç¢°æ’
 */
 bool Game::rotationCollision() {
 	int x, y;
@@ -303,7 +296,7 @@ bool Game::rotationCollision() {
 
 /*
 Checking for collisions when the piece is moving
-·í¤u¥ó²¾°Ê®ÉÀË¬d¸I¼²
+ç•¶å·¥ä»¶ç§»å‹•æ™‚æª¢æŸ¥ç¢°æ’
 */
 bool Game::moveCollision(int dir) {
 	int x, y;
@@ -323,7 +316,7 @@ bool Game::moveCollision(int dir) {
 
 /*
 Updating the location of the active piece after a collision
-¸I¼²«á§ó·s¬¡°Ê¥óªº¦ì¸m
+ç¢°æ’å¾Œæ›´æ–°æ´»å‹•ä»¶çš„ä½ç½®
 */
 void Game::updateActiveAfterCollision() {
 	const int* trans = activePiece.rotations();
@@ -335,7 +328,7 @@ void Game::updateActiveAfterCollision() {
 
 /*
 Checking lines for filling and setting filled lines for deleting 
-ÀË¬d¶ñ¥R¦æ©M³]¸m§R°£¶ñ¥R¦æ
+æª¢æŸ¥å¡«å……è¡Œå’Œè¨­ç½®åˆªé™¤å¡«å……è¡Œ
 */
 void Game::checkLine() {
 	int fullRows = 0;
@@ -366,7 +359,7 @@ void Game::checkLine() {
 
 /*
 Remove a filled row and move all pieces up one cell down
-§R°£¶ñ¥Rªº¦æ¨Ã±N©Ò¦³³¡¤À¦V¤W²¾°Ê¤@­Ó³æ¤¸®æ
+åˆªé™¤å¡«å……çš„è¡Œä¸¦å°‡æ‰€æœ‰éƒ¨åˆ†å‘ä¸Šç§»å‹•ä¸€å€‹å–®å…ƒæ ¼
 */
 void Game::clearLine() {
 	for (int r = ROWS-1; r > 0; r--){ // Checking each line
