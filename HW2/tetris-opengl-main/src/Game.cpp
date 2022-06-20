@@ -295,7 +295,6 @@ bool Game::rotationCollision() {
 }
 
 /*
-Checking for collisions when the piece is moving
 當工件移動時檢查碰撞
 */
 bool Game::moveCollision(int dir) {
@@ -315,7 +314,6 @@ bool Game::moveCollision(int dir) {
 }
 
 /*
-Updating the location of the active piece after a collision
 碰撞後更新活動件的位置
 */
 void Game::updateActiveAfterCollision() {
@@ -327,7 +325,6 @@ void Game::updateActiveAfterCollision() {
 }
 
 /*
-Checking lines for filling and setting filled lines for deleting 
 檢查填充行和設置刪除填充行
 */
 void Game::checkLine() {
@@ -358,7 +355,6 @@ void Game::checkLine() {
 }
 
 /*
-Remove a filled row and move all pieces up one cell down
 刪除填充的行並將所有部分向上移動一個單元格
 */
 void Game::clearLine() {
